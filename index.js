@@ -65,6 +65,6 @@ app.get('/terms',function (req,res) {
     res.render("terms");
 });
 
-app.listen(9990,function(){
+app.listen(9999,function(){
     console.log('服务器已经启动');
 });
