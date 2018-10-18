@@ -43,9 +43,6 @@ app.get('/product-k',indexController.product_k);
 var indexController=require('./Controllers/IndexController3');
 app.get('/checkout',indexController.checkout);
 
-
-
-
 app.get('/login',function (req,res) {
     res.render("login");
 });
@@ -68,4 +65,6 @@ app.get('/terms',function (req,res) {
     res.render("terms");
 });
 
-app.listen(9999);
+app.listen(9990,function(){
+    console.log('服务器已经启动');
+});
