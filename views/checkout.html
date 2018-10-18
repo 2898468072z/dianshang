@@ -240,6 +240,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</script>
 
 				<div class="in-check" >
+
+
+
 					<ul class="unit">
 						<li><span>Item</span></li>
 						<li><span>Product Name</span></li>
@@ -248,33 +251,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<li> </li>
 						<div class="clearfix"> </div>
 					</ul>
+
+					<% items.forEach(function (item) {%>
 					<ul class="cart-header simpleCart_shelfItem">
 						<div class="close1"> </div>
-						<li class="ring-in"><a href="single" ><img src="images/c.jpg" class="img-responsive" alt=""></a>
+						<li class="ring-in"><a href="single" ><img src="<%=item.img%>" class="img-responsive" alt=""></a>
 						</li>
-						<li><span>Bracelets</span></li>
-						<li><span class="item_price">$ 290.00</span></li>
-						<li> <a href="#" class="add-cart cart-check item_add">Add to cart</a></li>
+						<li><span><%=item.single%></span></li>
+						<li><span class="item_price"><%=item.srch%></span></li>
+						<li> <a href="#" class="add-cart cart-check item_add"><%=item.cart%></a></li>
 						<div class="clearfix"> </div>
 					</ul>
-					<ul class=" cart-header1 simpleCart_shelfItem">
-						<div class="close2"> </div>
-						<li class="ring-in"><a href="single" ><img src="images/c2.jpg" class="img-responsive" alt=""></a>
-						</li>
-						<li><span>Watches</span></li>
-						<li><span class="item_price">$ 300.00</span></li>
-						<li> <a href="#" class="add-cart cart-check item_add">Add to cart</a></li>
-						<div class="clearfix"> </div>
-					</ul>
-					<ul class="cart-header2 simpleCart_shelfItem">
-						<div class="close3"> </div>
-						<li class="ring-in"><a href="single" ><img src="images/c3.jpg" class="img-responsive" alt=""></a>
-						</li>
-						<li><span>Handbag</span></li>
-						<li><span class="item_price">$ 360.00</span></li>
-						<li> <a href="#" class="add-cart cart-check item_add">Add to cart</a></li>
-						<div class="clearfix"> </div>
-					</ul>
+					<%})%>
 				</div>
 			</div>
 		</div>
@@ -286,6 +274,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="container">
 		<div class="footer-main">
 			<div class="ftr-grids-block">
+
+
 				<div class="col-md-3 footer-grid">
 					<ul>
 						<li><a href="product">Accessories</a></li>
