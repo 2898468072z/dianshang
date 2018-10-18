@@ -1,6 +1,17 @@
 //1,引入express
 var express = require('express');
 var app = express();
+
+var cookieParser = require('cookie-parser');
+app.use(cookieParser());
+var session = require('express-session');
+app.use(session({
+    secret: '12345',
+    name: 'express_11_cookie',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+    cookie: {maxAge: 60*60 *1000 },     //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+}));
+
+
 var path = require('path');
 var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({extended:false});
@@ -18,6 +29,7 @@ app.use(express.static('public'));
 var indexController=require('./Controllers/IndexController');
 app.get('/index',indexController.index);
 app.post('/login',urlencodedParser,indexController.login);
+
 var indexController = require('./Controllers/IndexController1');
 app.post('/signup',urlencodedParser,indexController.signup);
 

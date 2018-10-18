@@ -10,13 +10,13 @@ function UserService(){
         this.userDao.init();
     }
 
-    this.checkUser=function(username,password,call){
-
+    this.checkUser=function(username,password,call,state){
+        if(state==0){
         //(1)用户工具类
         var tool=require('../Tools/tool');
 
         var password =tool.crypto(password);
-
+    }
         this.selectUserByName(username,function(result){
             var body={
                 state:0,
@@ -33,10 +33,14 @@ function UserService(){
                 var buffer = result[0].password;
                 //3,判断用户是否合法
                 if(password==buffer){
-                    state:2,
-                        body.msg="登录成功！";
+                    body.state=2,
+                    body.msg="登录成功！";
+                    body.username=username;
+                    body.password=buffer;
+                    console.log(username);
+                    console.log(password);
                 }else{
-                    state:1,
+                    body.state=1,
                         body.msg="登录失败，密码错误，请重新输入密码！";
                 }
             }
