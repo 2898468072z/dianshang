@@ -2,23 +2,6 @@
     <div class="container">
         <div class="header-main">
 
-            <!--<% if(state==2){%>-->
-
-            <!--<p>你已登录baby home<a href="signin">退出登录</a></p>-->
-            <!--<%-->
-            <!--}-->
-            <!--else{%>-->
-
-
-            <!--<div class="nav navbar-nav wow fadeInLeft animated" data-wow-delay=".5s">-->
-                <!--<p>欢迎来到baby home <a href="signup">注册 </a> 或 <a href="signin">登录</a></p>-->
-            <!--</div>-->
-
-            <!--<%  }%>-->
-
-
-
-
 
 
             <div class="top-nav">
@@ -183,7 +166,20 @@
                         <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
                     </div>
                     <div class="head-signin">
+                        <% if(state==2){%>
+
+                        <h5><a href="login"><i class="hd-dign"></i>Landing success</a></h5>
+                        <%
+                        }
+                        else{%>
+
+
                         <h5><a href="login"><i class="hd-dign"></i>Sign in</a></h5>
+                        </div>
+
+                        <%  }%>
+                       <!--<h5><a href="login"><i class="hd-dign"></i>Sign in</a></h5>-->
+
                     </div>
                     <div class="clearfix"> </div>
                 </div>

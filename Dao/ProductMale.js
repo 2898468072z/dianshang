@@ -1,4 +1,4 @@
-exports.index = function AccountDao() {
+exports.product_m = function AccountDao() {
     this.init = function () {
         //1,引入MySQL模块
         var mysql = require('mysql');  //调用MySQL模块

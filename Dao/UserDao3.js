@@ -18,7 +18,7 @@ exports.checkout = function AccountDao() {
 
     this.selectProducts = function (call){
         //1,编写sql语句
-        var  userGetSql = 'select shangping.img,shangping.single,shangping.srch,shangping.cart,shangping.user_id from shangping left join  gouwu on gouwu.shangping_id=shangping.id where shangping.user_id='+7   // " +user.id+"'" ;
+        var  userGetSql = 'select shangping.id,shangping.img,shangping.single,shangping.srch,shangping.cart,shangping.user_id from shangping left join  gouwu on gouwu.shangping_id=shangping.id where shangping.id='+7   // " +user.id+"'" ;
 
         //2,进行查询操作
         /**

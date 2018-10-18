@@ -29,41 +29,28 @@ app.use(express.static('public'));
 var indexController=require('./Controllers/IndexController');
 app.get('/index',indexController.index);
 app.post('/login',urlencodedParser,indexController.login);
-
-var indexController = require('./Controllers/IndexController1');
-app.post('/signup',urlencodedParser,indexController.signup);
-
-var indexController=require('./Controllers/IndexController2');
-app.get('/product-m',indexController.index);
-var indexController=require('./Controllers/IndexController2');
+app.get('/contact',indexController.contact);
+app.get('/pressroom',indexController.pressroom);
+app.get('/shortcodes',indexController.shortcoder);
+app.get('/signup',indexController.signup);
+app.get('/single',indexController.single);
+app.get('/terms',indexController.terms);
+app.get('/product-m',indexController.product_m);
+app.get('/product-k',indexController.product_k);
+app.get('/checkout',indexController.checkout);
 app.get('/product',indexController.product);
 
-var indexController=require('./Controllers/IndexController2');
-app.get('/product-k',indexController.product_k);
-var indexController=require('./Controllers/IndexController3');
-app.get('/checkout',indexController.checkout);
+
+var indexController1 = require('./Controllers/IndexController1');
+app.post('/signup',urlencodedParser,indexController1.signup);
+
+
 
 app.get('/login',function (req,res) {
     res.render("login");
 });
-app.get('/contact',function (req,res) {
-    res.render("contact");
-});
-app.get('/pressroom',function (req,res) {
-    res.render("pressroom");
-});
-app.get('/shortcodes',function (req,res) {
-    res.render("shortcodes");
-});
-app.get('/signup',function (req,res) {
-    res.render("signup");
-});
-app.get('/single',function (req,res) {
-    res.render("single");
-});
-app.get('/terms',function (req,res) {
-    res.render("terms");
-});
+
+
 
 app.listen(9999,function(){
     console.log('服务器已经启动');

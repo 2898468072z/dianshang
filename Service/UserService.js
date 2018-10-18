@@ -33,7 +33,7 @@ function UserService(){
                 var buffer = result[0].password;
                 //3,判断用户是否合法
                 if(password==buffer){
-                    body.state=2,
+                    body.state=2;
                     body.msg="登录成功！";
                     body.username=username;
                     body.password=buffer;
@@ -45,6 +45,7 @@ function UserService(){
                 }
             }
             call(body);
+
         });
 
     }

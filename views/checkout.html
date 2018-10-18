@@ -80,14 +80,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"> </div>
 					</ul>
 
-					<% items.forEach(function (item) {%>
+					<% works.forEach(function (work) {%>
 					<ul class="cart-header simpleCart_shelfItem">
 						<div class="close1"> </div>
-						<li class="ring-in"><a href="single" ><img src="<%=item.img%>" class="img-responsive" alt=""></a>
+						<li class="ring-in"><a href="single" ><img src="<%=work.img%>" class="img-responsive" alt=""></a>
 						</li>
-						<li><span><%=item.single%></span></li>
-						<li><span class="item_price"><%=item.srch%></span></li>
-						<li> <a href="#" class="add-cart cart-check item_add"><%=item.cart%></a></li>
+						<li><span><%=work.single%></span></li>
+						<li><span class="item_price"><%=work.srch%></span></li>
+						<li> <a href="#" class="add-cart cart-check item_add"><%=work.cart%></a></li>
 						<div class="clearfix"> </div>
 					</ul>
 					<%})%>
