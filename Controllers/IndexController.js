@@ -280,33 +280,38 @@ exports.signup=function(req,res) {
 
 
 exports.single=function(req,res) {
-    if (req.session.sign) {
-        res.render('single', {state: 2});
-        return;
-    }
+    var UserDao2 = require("../Dao/UserDao2");
+    var userDao2 = new UserDao2.UserDao();
+    userDao2.init();
+    userDao2.selectUserByName(function(data) {
+        if (req.session.sign) {
+            res.render('single', {state: 2, works: data});
+            return;
+        }
 
-    var username = req.cookies.username;
-    var password = req.cookies.password;
+        var username = req.cookies.username;
+        var password = req.cookies.password;
 
-    if (username == null || password == null) {
-        res.render('single', {state: -1});
-    } else {
-        //(1)引入userService
-        var UserService = require('../Service/UserService');
-        //(2)创建对象
-        var userService = new UserService();
-        //(3)对象初始化
-        userService.init();
-        //(4)验证用户都合法
-        userService.checkUser(username, password, function (result) {
-            if (result.state == 2) {
-                req.session.sign = true;
-                res.render('single', {state: 2});
-            } else {
-                res.render('single', {state: -1});
-            }
-        }, 1);
-    }
+        if (username == null || password == null) {
+            res.render('single', {state: -1, works: data});
+        } else {
+            //(1)引入userService
+            var UserService = require('../Service/UserService');
+            //(2)创建对象
+            var userService = new UserService();
+            //(3)对象初始化
+            userService.init();
+            //(4)验证用户都合法
+            userService.checkUser(username, password, function (result) {
+                if (result.state == 2) {
+                    req.session.sign = true;
+                    res.render('single', {state: 2, works: data});
+                } else {
+                    res.render('single', {state: -1, works: data});
+                }
+            }, 1);
+        }
+    })
 }
 
 
